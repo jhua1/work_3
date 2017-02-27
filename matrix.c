@@ -12,6 +12,13 @@ Returns:
 print the matrix
 */
 void print_matrix(struct matrix *m) {
+  int r,c;
+  for( r = 0 ; r < m->rows; r++){
+    for ( c = 0; c < m->cols; c++){
+      printf("%f \t", m->m[r][c]);
+    }
+    printf("\n");
+  }
 }
 
 /*-------------- void ident() --------------
@@ -32,6 +39,12 @@ Returns:
 multiply each element of m by x
 */
 void scalar_mult(double x, struct matrix *m) {
+  int r,c;
+  for( r = 0; r < m->rows; r++){
+    for ( c = 0; c < m->cols; c++){
+      m->m[r][c] = m->m[r][c] * x;
+    }
+  }
 }
 
 
