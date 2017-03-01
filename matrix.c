@@ -78,6 +78,7 @@ void matrix_mult(struct matrix *a, struct matrix *b) {
     }
   }
   copy_matrix(temp,b);
+  //when using copy, if temp is smaller than b, extra stuff from b shows up
   free_matrix(temp);
   
 }
