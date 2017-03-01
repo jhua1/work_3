@@ -65,6 +65,21 @@ Returns:
 a*b -> b
 */
 void matrix_mult(struct matrix *a, struct matrix *b) {
+  struct matrix *temp;
+  temp = new_matrix(a->rows,b->cols);
+  int x,y,z,sum;
+  for(x = 0; x < a->rows; x++){
+    for( y = 0; y < b->cols; y++){
+      sum = 0;
+      for( z = 0; z< a->cols; z++){
+	sum+= a->m[x][z] * b->m[z][y];
+      }
+      temp->m[x][y]=sum;
+    }
+  }
+  copy_matrix(temp,b);
+  free_matrix(temp);
+  
 }
 
 
